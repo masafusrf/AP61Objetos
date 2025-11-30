@@ -48,7 +48,7 @@ class Triangle{
     public function calcPerim($lado1, $lado2, $lado3){
 
         $perim= $lado1 + $lado2 + $lado3;
-        echo "El perímetro del triángulo es de $perim <br>";
+        return $perim;
 
     }
 
@@ -57,20 +57,27 @@ class Triangle{
         if (($lado1 + $lado2 <= $lado3) || 
             ($lado2 + $lado3 <= $lado1) ||
             ($lado1 + $lado3 <= $lado2)) {
-            
-                echo "Los lados no forman un triángulo válido. <br>";
-                return;
+
+                return false;
             }
     
         $semiP= ($lado1 + $lado2 + $lado3) / 2;
         $area= sqrt($semiP * ($semiP - $lado1) * ($semiP - $lado2) * ($semiP - $lado3));
-        echo "El área del triángulo es de $area <br>";
+        return $area;
         
     }
 }
 
     $triangulo1= new Triangle(2, 4, 6);
-    $triangulo1-> calcPerim(2, 4, 6);
-    $triangulo1-> calcArea(2, 4, 6);
+
+    $perim = $triangulo1->calcPerim(2, 4, 6);
+    echo "El perímetro es de $perim <br>";
+
+    $area = $triangulo1->calcArea(2, 4, 6);
+    if ($area == false){
+        echo "Los lados no forman un triángulo válido. <br>";
+    } else{
+        echo "El área del triángulo es de $area <br>";
+    }
 
 ?>
