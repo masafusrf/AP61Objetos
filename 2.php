@@ -45,12 +45,13 @@
 
         public function calcPromedio(){
             $prom= ($this->num1 + $this->num2 + $this->num3) / 3;
-            echo "El promedio es $prom <br>";
+            return $prom;
         }
     }
 
     $notas= new Average(4, 6, 8);
-    $notas-> calcPromedio();
+    $promedio = $notas->calcPromedio();
+    echo "El promedio es: $promedio <br>";
 
 
 
